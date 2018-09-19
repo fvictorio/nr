@@ -14,13 +14,15 @@
   "scripts": {
     "format": "prettier --write '**/*.{md,json,js}'",
     "format:changed": "pretty-quick",
-    "precommit": "pretty-quick --staged"
+    "precommit": "pretty-quick --staged",
+    "release": "np"
   },
   "author": "Franco Victorio <victorio.franco@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "chalk": "^2.4.1",
-    "inquirer": "^6.2.0"
+    "inquirer": "^6.2.0",
+    "np": "^3.0.4"
   },
   "devDependencies": {
     "husky": "^0.14.3",
