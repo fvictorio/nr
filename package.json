@@ -5,10 +5,26 @@
   "bin": {
     "nr": "index.js"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "cli",
+    "node",
+    "scripts",
+    "run"
+  ],
+  "scripts": {
+    "format": "prettier --write '**/*.{md,json,js}'",
+    "format:changed": "pretty-quick",
+    "precommit": "pretty-quick --staged"
+  },
+  "author": "Franco Victorio <victorio.franco@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "chalk": "^2.4.1",
     "inquirer": "^6.2.0"
+  },
+  "devDependencies": {
+    "husky": "^0.14.3",
+    "prettier": "^1.14.3",
+    "pretty-quick": "^1.7.0"
   }
 }
