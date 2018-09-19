@@ -1,0 +1,15 @@
+{
+  "name": "@fvictorio/nr",
+  "version": "0.0.1",
+  "description": "",
+  "bin": {
+    "nr": "index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "inquirer": "^6.2.0",
+    "shelljs": "^0.8.2"
+  }
+}
