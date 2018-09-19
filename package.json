@@ -9,7 +9,6 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "inquirer": "^6.2.0",
-    "shelljs": "^0.8.2"
+    "inquirer": "^6.2.0"
   }
 }
