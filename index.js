@@ -15,15 +15,13 @@ if (process.argv.length > 2) {
 function main() {
   const pkg = fs.readFileSync('package.json')
   const scripts = JSON.parse(pkg).scripts || {}
-  const names = Object.keys(scripts)
+  const entries = Object.entries(scripts)
 
-  if (!names.length) {
+  if (!entries.length) {
     console.log('No scripts in package.json')
 
     return
   }
-
-  logScripts(scripts)
 
   inquirer
     .prompt([
@@ -31,7 +29,7 @@ function main() {
         name: 'script',
         type: 'list',
         message: 'Which script do you want to run?',
-        choices: names,
+        choices: choices(entries),
       },
     ])
     .then(answers => {
@@ -43,21 +41,10 @@ function runScript(script, ...args) {
   spawn(`npm`, ['run', script, ...args], { stdio: 'inherit' })
 }
 
-function logScripts(scripts = {}) {
-  const entries = Object.entries(scripts)
-
-  const longest = entries.reduce(
-    (acc, [name]) => (name.length > acc ? name.length : acc),
-    0,
-  )
-
-  const table = entries.reduce(
-    (acc, [n, c]) => chalk`${acc}{bold ${n.padStart(longest, ' ')}} - ${c}\n`,
-    '',
-  )
-
-  console.log('-----'.padStart(longest + 4, ' '))
-  console.log(table.replace(/\n$/, ''))
-  console.log('-----'.padStart(longest + 4, ' '))
-  console.log()
+function choices(pairs) {
+  return pairs.map(([script, content]) => ({
+    value: script,
+    short: script,
+    name: chalk`{bold ${script}}: ${content}`,
+  }))
 }
