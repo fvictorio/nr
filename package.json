@@ -18,6 +18,9 @@
     "release": "np"
   },
   "author": "Franco Victorio <victorio.franco@gmail.com>",
+  "contributors": [
+    "Christian Gill <gillchristiang@gmail.com>"
+  ],
   "license": "MIT",
   "dependencies": {
     "chalk": "^2.4.1",
